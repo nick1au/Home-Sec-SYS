@@ -1,0 +1,18 @@
+
+State Machine - |AlrTest|halfSecDelay:stage3|Prest
+Name Prest.count Prest.hold Prest.idle 
+Prest.idle 0 0 0 
+Prest.hold 0 1 1 
+Prest.count 1 0 1 
+
+State Machine - |AlrTest|System:stage1|Prest
+Name Prest.alr Prest.syson Prest.sysoff 
+Prest.sysoff 0 0 0 
+Prest.syson 0 1 1 
+Prest.alr 1 0 1 
+
+State Machine - |AlrTest|System:stage1|TenSecDelay:stage0|Prest
+Name Prest.count Prest.hold Prest.idle 
+Prest.idle 0 0 0 
+Prest.hold 0 1 1 
+Prest.count 1 0 1 

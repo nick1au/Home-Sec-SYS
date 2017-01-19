@@ -1,0 +1,226 @@
+|AlrTest
+KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => halfsecdelay:stage3.load
+KEY[4] => ~NO_FANOUT~
+KEY[5] => ~NO_FANOUT~
+KEY[6] => ~NO_FANOUT~
+KEY[7] => ~NO_FANOUT~
+KEY[8] => ~NO_FANOUT~
+KEY[9] => ~NO_FANOUT~
+KEY[10] => ~NO_FANOUT~
+KEY[11] => ~NO_FANOUT~
+KEY[12] => ~NO_FANOUT~
+KEY[13] => ~NO_FANOUT~
+KEY[14] => ~NO_FANOUT~
+KEY[15] => ~NO_FANOUT~
+KEY[16] => ~NO_FANOUT~
+KEY[17] => ~NO_FANOUT~
+SW[0] => system:stage1.door[0]
+SW[0] => LEDR[0].DATAIN
+SW[1] => system:stage1.door[1]
+SW[1] => LEDR[1].DATAIN
+SW[2] => system:stage1.door[2]
+SW[2] => LEDR[2].DATAIN
+SW[3] => system:stage1.door[3]
+SW[3] => LEDR[3].DATAIN
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+SW[10] => ~NO_FANOUT~
+SW[11] => ~NO_FANOUT~
+SW[12] => ~NO_FANOUT~
+SW[13] => ~NO_FANOUT~
+SW[14] => ~NO_FANOUT~
+SW[15] => jamesbond:stage4.Digit[0]
+SW[15] => LEDR[15].DATAIN
+SW[16] => jamesbond:stage4.Digit[1]
+SW[16] => LEDR[16].DATAIN
+SW[17] => jamesbond:stage4.Digit[2]
+SW[17] => LEDR[17].DATAIN
+CLOCK_50 => prescale:stage2.inclock
+LEDG[0] <= system:stage1.AlrOn
+LEDG[1] <= system:stage1.SysArm
+LEDG[2] <= system:stage1.ready
+LEDG[3] <= system:stage1.delay
+LEDR[0] <= SW[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= SW[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= SW[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= SW[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+LEDR[10] <= <GND>
+LEDR[11] <= <GND>
+LEDR[12] <= <GND>
+LEDR[13] <= <GND>
+LEDR[14] <= <GND>
+LEDR[15] <= SW[15].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[16] <= SW[16].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[17] <= SW[17].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= alarm:stage0.Y3[0]
+HEX0[1] <= alarm:stage0.Y3[1]
+HEX0[2] <= alarm:stage0.Y3[2]
+HEX0[3] <= alarm:stage0.Y3[3]
+HEX0[4] <= alarm:stage0.Y3[4]
+HEX0[5] <= alarm:stage0.Y3[5]
+HEX0[6] <= alarm:stage0.Y3[6]
+HEX1[0] <= alarm:stage0.Y2[0]
+HEX1[1] <= alarm:stage0.Y2[1]
+HEX1[2] <= alarm:stage0.Y2[2]
+HEX1[3] <= alarm:stage0.Y2[3]
+HEX1[4] <= alarm:stage0.Y2[4]
+HEX1[5] <= alarm:stage0.Y2[5]
+HEX1[6] <= alarm:stage0.Y2[6]
+HEX2[0] <= alarm:stage0.Y1[0]
+HEX2[1] <= alarm:stage0.Y1[1]
+HEX2[2] <= alarm:stage0.Y1[2]
+HEX2[3] <= alarm:stage0.Y1[3]
+HEX2[4] <= alarm:stage0.Y1[4]
+HEX2[5] <= alarm:stage0.Y1[5]
+HEX2[6] <= alarm:stage0.Y1[6]
+
+
+|AlrTest|JamesBond:stage4
+Go => GetCode.IN1
+Go => Q2[2].ENA
+Go => Q2[1].ENA
+Go => Q2[0].ENA
+Go => Q1[0].ENA
+Go => Q1[1].ENA
+Go => Q1[2].ENA
+clock => Q2[0].CLK
+clock => Q2[1].CLK
+clock => Q2[2].CLK
+clock => Q1[0].CLK
+clock => Q1[1].CLK
+clock => Q1[2].CLK
+Digit[0] => Equal0.IN2
+Digit[0] => Q1[0].DATAIN
+Digit[1] => Equal0.IN1
+Digit[1] => Q1[1].DATAIN
+Digit[2] => Equal0.IN0
+Digit[2] => Q1[2].DATAIN
+GetCode <= GetCode.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AlrTest|Alarm:stage0
+Enable => slt.IN1
+clockin => prescale:stage1.inclock
+Y1[0] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y1[1] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y1[2] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y1[3] <= <VCC>
+Y1[4] <= <VCC>
+Y1[5] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y1[6] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y2[0] <= <VCC>
+Y2[1] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y2[2] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y2[3] <= <VCC>
+Y2[4] <= <VCC>
+Y2[5] <= <VCC>
+Y2[6] <= <VCC>
+Y3[0] <= <VCC>
+Y3[1] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y3[2] <= slt.DB_MAX_OUTPUT_PORT_TYPE
+Y3[3] <= <VCC>
+Y3[4] <= <VCC>
+Y3[5] <= <VCC>
+Y3[6] <= <VCC>
+
+
+|AlrTest|Alarm:stage0|PreScale:stage1
+inclock => Q[0].CLK
+inclock => Q[1].CLK
+inclock => Q[2].CLK
+inclock => Q[3].CLK
+inclock => Q[4].CLK
+inclock => Q[5].CLK
+outclock <= Q[5].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AlrTest|System:stage1
+door[0] => Equal0.IN3
+door[0] => Equal1.IN3
+door[1] => Equal0.IN2
+door[1] => Equal1.IN2
+door[2] => Equal0.IN1
+door[2] => Equal1.IN1
+door[3] => Equal0.IN0
+door[3] => Equal1.IN0
+ARM => sysonnext.syson.OUTPUTSELECT
+ARM => sysonnext.alr.OUTPUTSELECT
+ARM => sysoffnext.syson.IN0
+ARM => sysonnext.sysoff.IN0
+ARM => alrnext.sysoff.IN0
+ARM => NxtSt.sysoff.DATAB
+ARM => NxtSt.DATAA
+clock => tensecdelay:stage0.clock
+clock => Prest~1.DATAIN
+ready <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+delay <= tensecdelay:stage0.TC
+SysArm <= SysArm.DB_MAX_OUTPUT_PORT_TYPE
+AlrOn <= AlrOn.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AlrTest|System:stage1|TenSecDelay:stage0
+load => idlenxt.hold.IN0
+load => holdnxt.hold.IN0
+load => NxtSt.idle.DATAB
+load => NxtSt.DATAB
+clock => decrement_str[0].CLK
+clock => decrement_str[1].CLK
+clock => decrement_str[2].CLK
+clock => decrement_str[3].CLK
+clock => decrement_str[4].CLK
+clock => decrement_str[5].CLK
+clock => decrement_str[6].CLK
+clock => decrement_str[7].CLK
+clock => decrement_str[8].CLK
+clock => decrement_str[9].CLK
+clock => Prest~1.DATAIN
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AlrTest|PreScale:stage2
+inclock => Q[0].CLK
+inclock => Q[1].CLK
+inclock => Q[2].CLK
+inclock => Q[3].CLK
+inclock => Q[4].CLK
+inclock => Q[5].CLK
+inclock => Q[6].CLK
+inclock => Q[7].CLK
+inclock => Q[8].CLK
+inclock => Q[9].CLK
+inclock => Q[10].CLK
+inclock => Q[11].CLK
+inclock => Q[12].CLK
+inclock => Q[13].CLK
+inclock => Q[14].CLK
+inclock => Q[15].CLK
+inclock => Q[16].CLK
+inclock => Q[17].CLK
+inclock => Q[18].CLK
+outclock <= Q[18].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AlrTest|halfSecDelay:stage3
+load => idlenxt.hold.IN0
+load => holdnxt.hold.IN0
+load => NxtSt.idle.DATAB
+load => NxtSt.DATAB
+clock => decrement_str[0].CLK
+clock => decrement_str[1].CLK
+clock => Prest~1.DATAIN
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+
+
