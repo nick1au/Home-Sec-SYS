@@ -1,5 +1,5 @@
 # Home-Sec-SYS
-
+A replication of a home alarm system based on an FPGA implemented under VHDL with real-world functionality such as unlock codes, doors and triggers to trip the alarm.
 ## About
 * Course-based project - SFU ENSC 252 (Fundamentals of Digital Logic and Design)  
 * Active in November 2016
