@@ -4,11 +4,13 @@
 * Course-based project - SFU ENSC 252 (Fundamentals of Digital Logic and Design)  
 * Active in November 2016
 * Worked as part of a three person group (Wei Chun, Danny Ledesma)
+* Professor: Lakshman One
 
 ## Project Info
 * Home Alarm System based on FPGA and VHDL
 * Prototyped in state and circuit diagram before implementation
 * FPGA: Altera DE2-115 **(Cyclone IVE EP4CE115F29C7)**
+* VHDL Implemented Under: Altera Quartus Prime Lite 16.0
 
 ## Project Breakdown
 ### PreScale
